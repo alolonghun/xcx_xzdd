@@ -1,0 +1,309 @@
+/*
+ * @Author: smallke 
+ * @Date: 2017-06-03 14:35:16 
+ * @Last Modified by: smallke
+ * @Last Modified time: 2017-06-27 14:17:54
+ */
+
+//公用样式
+@import "../../mixins/mixins";
+page {
+    background-color: #f7f7f7;
+}
+
+.detail {
+    position: relative;
+    height: 390*1.172rpx;
+    @include bg-cover;
+    background-image: url($cdnImage+'/20170604149655954286150.jpg');
+    padding: 50*1.172rpx 30*1.172rpx 0px;
+    .avatar {
+        margin: 0 auto;
+        width: 150*1.172rpx;
+        height: 130*1.172rpx;
+        @include bg-cover;
+    }
+    .title {
+        margin-top: 39*1.172rpx;
+        color: #ffffff;
+        font-size: 28*1.172rpx;
+        font-weight: 400;
+        line-height: 1;
+        text-align: center;
+        @include text-overflow;
+    }
+    .action {
+        padding-top: 40*1.172rpx;
+        color: #fff;
+        font-size: 24*1.172rpx;
+        font-weight: 400;
+        line-height: 24*1.172rpx;
+        text-align: center;
+        .em {
+            display: inline-block;
+            padding-right: 20*1.172rpx;
+            color: #fff;
+            font-size: 24*1.172rpx;
+            font-weight: 400;
+            line-height: 24*1.172rpx;
+            vertical-align: middle;
+        }
+        .u-icn {
+            margin-right: 16*1.172rpx;
+            vertical-align: middle;
+            margin-top: -5rpx;
+        }
+    }
+    .price {
+        padding-top: 20*1.172rpx;
+        text-align: center;
+        text {
+            color: #ffffff;
+            font-size: 24*1.172rpx;
+            font-weight: 400;
+            line-height: 1;
+            padding: 0px 10*1.172rpx;
+        }
+    }
+}
+
+.btns-group {
+    padding: 32*1.172rpx 0*1.172rpx;
+    background-color: #fff;
+    text-align: center;
+    .u-btn {
+        margin: 0px 27*1.172rpx;
+        &.success {
+            background-color: #767676;
+        }
+    }
+    .u-icn {
+        margin-right: 10*1.172rpx;
+    }
+}
+
+.u-tabs {
+    height: 110rpx;
+    background-color: #ffffff;
+    text-align: center;
+    border: 1rpx solid #dddddd;
+    .tab {
+        display: inline-block;
+        width: 176rpx;
+        font-size: 33rpx;
+        font-weight: 500;
+        line-height: 105rpx;
+        color: #333333;
+        margin: 0 20rpx;
+        &:first-child {
+            float: left;
+        }
+        &:last-child {
+            float: right;
+        }
+        &.active {
+            color: #3694cb;
+            border-bottom: 4rpx solid #3694cb;
+        }
+    }
+}
+
+.section-intro {
+    background-color: #fff;
+    padding: 60rpx 50rpx;
+    margin-bottom: 24rpx;
+    .title {
+        color: #333333;
+        font-size: 33rpx;
+        font-weight: 500;
+        line-height: 1;
+        @include text-overflow;
+    }
+    .dec {
+        padding-top: 28rpx;
+        color: #545454;
+        font-size: 28rpx;
+        font-weight: 400;
+        line-height: 60rpx;
+        white-space: pre-wrap;
+    }
+}
+
+.section-author {
+    background-color: #fff;
+    .info {
+        padding: 34rpx 50rpx 41rpx;
+        border-bottom: 1px solid #dddddd;
+        .title {
+            color: #333333;
+            font-size: 33rpx;
+            font-weight: 500;
+            line-height: 1;
+            @include text-overflow;
+        }
+        .author {
+            margin-top: 34rpx;
+            height: 94rpx;
+        }
+        .avatar {
+            float: left;
+            width: 94rpx;
+            height: 94rpx;
+            @include bg-cover;
+        }
+        .name {
+            float: left;
+            padding: 15rpx 30rpx;
+            color: #333333;
+            font-size: 33rpx;
+            font-weight: 400;
+            line-height: 1;
+        }
+    }
+    .dec {
+        padding: 30rpx 50rpx;
+        color: #545454;
+        font-size: 28rpx;
+        font-weight: 400;
+        line-height: 59rpx;
+        white-space: pre-wrap;
+    }
+}
+
+.tab-section {
+    background-color: #fff;
+}
+
+.m-lesson {
+    .item {
+        position: relative;
+        height: 198rpx;
+        padding: 28rpx 30rpx 16rpx 173rpx;
+        border-bottom: 1rpx solid #dddddd;
+    }
+    .avatar {
+        position: absolute;
+        left: 25rpx;
+        top: 43rpx;
+        width: 114rpx;
+        height: 114rpx;
+        line-height: 114rpx;
+        text-align: center;
+        border: 6rpx solid #fff;
+        border-radius: 100%;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.23);
+        @include bg-cover;
+        vertical-align: middle;
+        .u-icn {
+            display: inline-block;
+            vertical-align: middle;
+            top: -3rpx;
+            left: 3rpx;
+        }
+    }
+    .info {
+        .title {
+            color: #000000;
+            font-size: 28*1.172rpx;
+            line-height: 44*1.172rpx;
+            @include text-overflow;
+        }
+        .dec {
+            padding-top: 0rpx;
+            color: #a3a3a3;
+            font-size: 22*1.172rpx;
+            line-height: 28*1.172rpx;
+            @include text-overflow-line(2);
+        }
+    }
+    .action {
+        position: absolute;
+        left: 173rpx;
+        bottom: 14rpx;
+        color: #a3a3a3;
+        font-size: 28rpx;
+        font-weight: 400;
+        height: 30rpx;
+        line-height: 30rpx;
+        .em {
+            display: inline-block;
+            padding-right: 15rpx;
+            color: #a3a3a3;
+            font-size: 28rpx;
+            font-weight: 400;
+        }
+        .u-icn {
+            margin-right: 10rpx;
+        }
+    }
+}
+
+.m-judge {
+    padding: 20rpx;
+    .u-title {
+        padding-top: 40rpx;
+        color: #333333;
+        font-size: 33rpx;
+        font-weight: 500;
+        line-height: 1;
+    }
+}
+
+.judge-list {
+    .item {
+        position: relative;
+        padding: 44rpx 30rpx 44rpx 135rpx;
+        border-bottom: 1rpx solid #ddd;
+    }
+    .avatar {
+        position: absolute;
+        top: 38rpx;
+        left: 3rpx;
+        width: 94rpx;
+        height: 94rpx;
+        @include bg-cover;
+    }
+    .name {
+        font-weight: 400;
+        line-height: 1;
+        color: #333333;
+        font-size: 33rpx;
+        @include text-overflow;
+    }
+    .time {
+        padding-top: 15rpx;
+        font-weight: 400;
+        line-height: 1;
+        color: #8a8a8a;
+        font-size: 24rpx;
+    }
+    .content {
+        padding-top: 26rpx;
+        color: #545454;
+        font-size: 26rpx;
+        font-weight: 400;
+        line-height: 38rpx;
+        word-break: break-all;
+    }
+    .action {
+        position: absolute;
+        right: 27rpx;
+        top: 30rpx;
+        line-height: 34rpx;
+        .txt {
+            display: inline-block;
+            color: #8a8a8a;
+            font-size: 26rpx;
+            font-weight: 400;
+            height: 21rpx;
+            line-height: 34rpx;
+            padding-right: 10rpx;
+            vertical-align: middle;
+        }
+    }
+}
+
+.diviler {
+    height: 24rpx;
+    background-color: #f7f7f7;
+}

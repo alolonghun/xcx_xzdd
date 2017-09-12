@@ -1,0 +1,126 @@
+<view>
+    <import src="../template/template.wxml" />
+    <template is="soundbar" data="{{playStatus}}" />
+    <!--m-content start-->
+    <view class="m-content">
+        <view class="detail" style="background-image:url({{detail.entity.bg_img}});">
+            <view class="avatar" style="background-image:url({{detail.entity.img}});">
+            </view>
+            <view class="title">{{detail.entity.title}}</view>
+            <view class="action">
+                <view class="em">
+                    <text class="u-icn icn-play"></text>{{detail.entity.play_times}}</view>
+                <view class="em">
+                    <text class="u-icn icn-star"></text>{{detail.entity.collection}}次</view>
+            </view>
+            <view class="price">
+                <text>专题：{{detail.entity.price}}邦币</text>
+                <text>邦友：{{detail.entity.vip_price}}邦币</text>
+            </view>
+        </view>
+        <!-- <audio src="http://file.xiaozhangbang.org/video/201707/07/2239d437ae4c886b574635233d94859e.ogg?a=1"></audio> -->
+        <!--btns-group start-->
+        <view class="btns-group">
+            <view class="u-btn success" wx:if='{{is_subscribe}}'>
+                <text class="u-icn icn-collect-white"></text>
+                <text>订阅成功</text>
+            </view>
+            <view class="u-btn" wx:else bindtap="userSubscribe">
+                <text class="u-icn icn-collect-white"></text>
+                <text>点击订阅</text>
+            </view>
+            <view class="u-btn success" wx:if='{{is_collection}}' bindtap="userUncollection">
+                <text class="u-icn icn-star-white"></text>
+                <text>收藏成功</text>
+            </view>
+            <view class="u-btn" wx:else bindtap="userCollection">
+                <text class="u-icn icn-star-white"></text>
+                <text>点击收藏</text>
+            </view>
+        </view>
+        <!--btns-group end-->
+        <!--u-tabs start-->
+        <view class="u-tabs">
+            <text class="tab {{showInfo?'active':''}}" bindtap="showInfoTab">详情</text>
+            <text class="tab {{showList?'active':''}}" bindtap="showListTab">干货List </text>
+            <text class="tab {{showJudge?'active':''}}" bindtap="showJudgeTab">评论({{comment.count_num}})</text>
+        </view>
+        <!--u-tabs end-->
+        <!--tab-section start-->
+        <view class="tab-section" wx:if="{{showInfo}}">
+            <view class="section-intro">
+                <view class="title">内容简介</view>
+                <view class="dec">
+                    {{detail.entity.intro}}
+                </view>
+            </view>
+            <view class="diviler"></view>
+            <view class="section-author">
+                <view class="info">
+                    <view class="title">主讲嘉宾介绍</view>
+                    <view class="author">
+                        <view class="avatar" style="background-image:url({{detail.entity.speaker_img}});">
+                        </view>
+                        <text class="name">{{detail.entity.speaker_name}}</text>
+                    </view>
+                </view>
+                <view class="dec">
+                    {{detail.entity.speaker_intro}}
+                </view>
+            </view>
+        </view>
+        <!--tab-section end-->
+        <!--tab-section start-->
+        <view class="tab-section" wx:if="{{showList}}">
+            <!--m-lesson start-->
+            <view class="m-lesson">
+                <block wx:for="{{video_list}}" wx:key="dried_food_video_id">
+                    <view class="item" data-id="{{item.dried_food_video_id}}" catchtap="openVideoDetail">
+                        <view class="avatar" style="background-image:url({{item.img}});">
+                            <i class="u-icn icn-radio"></i>
+                        </view>
+                        <view class="info">
+                            <view class="title">{{item.title}}</view>
+                            <view class="dec">{{item.explain}}</view>
+                        </view>
+                        <view class="action">
+                            <view class="em">
+                                <text class="u-icn icn-view"></text>{{item.play_times}}</view>
+                            <view class="em">
+                                <text class="u-icn icn-time"></text>{{item.duration}}</view>
+                        </view>
+                        <text class="badge" wx-if="{{item.update_status}}">更新</text>
+                    </view>
+                </block>
+                <view class="no-more">已经全部加载完成</view>
+            </view>
+        </view>
+        <!--tab-section end-->
+        <!--tab-section start-->
+        <view class="tab-section" wx:if="{{showJudge}}">
+            <view class="m-judge">
+                <view class="u-title" wx-if="{{!allDone}}">
+                    热门评论
+                </view>
+                <view class="judge-list">
+                    <block wx:for="{{comment_list}}" wx:key="big_shot_comment_id">
+                        <view class="item">
+                            <view class="avatar" style="background-image:url('{{item.head_img}}');"></view>
+                            <view class="name">{{item.nick_name}}</view>
+                            <view class="time">{{item.create_time}}</view>
+                            <view class="content">
+                                {{item.content}}
+                            </view>
+                            <view class="action" bindtap="userVote" data-id="{{item.dried_food_comment_id}}" data-index="{{index}}" data-can="{{item.is_point}}"><text class="txt">{{item.point_number}}</text><text class="u-icn icn-vote {{item.is_point?'active':''}}"></text></view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+            <view class="link-more" wx-if="{{!allDone}}" bindtap="loadMore">点击查看更多留言</view>
+            <view class="no-more" wx-if="{{allDone}}">已经全部加载完成</view>
+        </view>
+        <!--tab-section end-->
+    </view>
+    <!--m-content end-->
+</view>
+

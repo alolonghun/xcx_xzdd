@@ -1,0 +1,41 @@
+<scroll-view scroll-y style="height: 100vh" bindscrolltolower="loadMore" lower-threshold="100">
+    <import src="../template/template.wxml" />
+    <template is="soundbar" data="{{playStatus}}" />
+    <!--banner start-->
+    <swiper indicator-dots="true" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#ffffff" autoplay="true" interval="5000" duration="500">
+        <block wx:for="{{banner}}" wx:key="banner_id">
+            <swiper-item bindtap="openDetail" data-id="{{item.relation_id}}">
+                <image src="{{item.banner_url}}" class="slide-image" mode="aspectFill" style="width: 100%; height: 293rpx;" />
+            </swiper-item>
+        </block>
+    </swiper>
+    <!--banner end-->
+    <view class="m-title">
+        大咖专栏
+    </view>
+    <!--m-lesson start-->
+    <view class="m-lesson">
+        <block wx:for="{{lesson}}" wx:key="big_shot_id">
+            <view class="item" bindtap="openDetail" data-id="{{item.big_shot_id}}" data-index="{{index}}">
+                <view class="avatar" style="background-image:url('{{item.img}}');">
+                    <text class="tag tag-free" wx-if="{{item.is_free==1}}">邦友免费</text>
+                    <text class="tag tag-sale" wx-if="{{item.is_special==1}}">邦友特价</text>
+                </view>
+                <view class="info">
+                    <view class="title">{{item.title}}</view>
+                    <view class="dec">{{item.explain}}</view>
+                </view>
+                <view class="action">
+                    <text class="u-icn icn-collect"></text>{{item.subscribe}}人订阅</view>
+                <view class="price" wx-if="{{item.price > 0}}">
+                    <text>{{item.price}}</text>邦币</view>
+                <view class="price" wx-if="{{item.price == 0}}">
+                    <text class="free">免费</text></view>
+                <text class="badge" wx-if="{{item.update_status}}">更新</text>
+            </view>
+        </block>
+        <view class="no-more" wx-if="{{allDone}}">已经全部加载完成</view>
+    </view>
+    <!--m-lesson end-->
+</scroll-view>
+

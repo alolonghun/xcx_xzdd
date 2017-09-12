@@ -1,0 +1,114 @@
+<view class="page">
+    <!--m-content start-->
+    <view class="m-content">
+        <view class="detail">
+            <swiper indicator-dots="{{false}}" autoplay="{{false}}" class="swiper" bindchange="swiper" current="{{now_ppt}}" bindtap="hideMusicInfo">
+                <block wx:for="{{ppts}}" wx:key="{{*this}}">
+                    <swiper-item>
+                        <view class="slide-image" style="background-image:url({{item.path}});"></view>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class="try" wx-if="{{tryFlag && !isHideMusicInfo}}">您可试听{{detail.entity.min_free_duration}}</view>
+            <view class="content" wx-if="{{!isHideMusicInfo}}">
+                <view class="time now">{{nowTimes}}</view>
+                <view class="title">主讲：{{detail.entity.speakers}}</view>
+                <view class="time end">{{detail.entity.min_duration}}</view>
+            </view>
+            <view class="times" style="width:{{now/duration*100>96?'96':now/duration*100}}%">
+                <text class="u-icn icn-times"></text>
+            </view>
+            <slider id="mySlider" class="{{stepShow?'active':''}}" bindtouchstart="stepShow" bindtouchmove="stepShow" activeColor="{{'#359dda'}}" bindtouchend="stepHide" bindchange="musicStep" step="1" min="1" max="{{duration}}" value="{{now}}" />
+        </view>
+        <!--control start-->
+        <view class="control">
+            <view class="u-icn icn-store" wx:if='{{false}}'></view>
+            <view class="center">
+                <text class="u-icn icn-left" bindtap="videoPrew"></text>
+                <text class="u-icn icn-on" bindtap="fmStop" wx:if="{{st}}"></text>
+                <text class="u-icn icn-off" bindtap="fmContinue" wx:else></text>
+                <text class="u-icn icn-right" bindtap="videoNext"></text>
+            </view>
+            <view class="u-icn icn-list" bindtap="popOpen"></view>
+        </view>
+        <!--control end-->
+        <view class="detail-title">
+            <view class="title">{{detail.entity.title}}</view>
+            <view class="dec">
+                <text class="txt">播放：{{detail.entity.play_times}}</text>
+                <text class="txt">收藏：{{detail.entity.collection}}次</text>
+            </view>
+        </view>
+        <view class="diviler"></view>
+    </view>
+    <!--m-content end-->
+    <!--tab-section start-->
+    <view class="tab-section">
+        <view class="section-intro">
+            <view class="title">内容简介</view>
+            <view class="dec">
+                {{detail.entity.intro}}
+            </view>
+        </view>
+        <view class="diviler" wx:if="{{recommends.length>0}}"></view>
+        <view class="section-commend" wx:if="{{recommends.length>0}}">
+            <view class="u-title">
+                相关推荐
+            </view>
+            <view class="list">
+                <block wx:for="{{recommends}}" wx:key="$this">
+                    <view class="item" style="background-image:url('{{item.recommend_banner}}');" data-id="{{item.big_shot_id}}" bindtap="openListDetail">
+                        <view class="wrap">
+                            <text class="u-icn icn-video"></text>{{item.title}}
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view class="diviler"></view>
+        <view class="m-judge">
+            <view class="u-title">
+                活动留言({{comment.count_num}})
+            </view>
+            <view class="judge-list">
+                <block wx:for="{{comment_list}}" wx:key="big_shot_comment_id">
+                    <view class="item">
+                        <view class="avatar" style="background-image:url('{{item.head_img}}');"></view>
+                        <view class="name">{{item.nick_name}}</view>
+                        <view class="time">{{item.create_time}}</view>
+                        <view class="content">
+                            {{item.content}}
+                        </view>
+                        <view class="action" bindtap="userVote" data-id="{{item.big_shot_comment_id}}" data-index="{{index}}" data-can="{{item.is_point}}">
+                            <text class="txt">{{item.point_number}}</text>
+                            <text class="u-icn icn-vote {{item.is_point?'active':''}}"></text>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view class="no-more" wx-if="{{allDone}}">已经全部加载完成</view>
+        <view class="link-more" wx-if="{{!allDone}}" bindtap="loadMore">点击查看更多留言</view>
+    </view>
+    <!--tab-section end-->
+    <!--pop-panel start-->
+    <view class="pop-panel" wx:if="{{popShow}}">
+        <view class="video-list">
+            <block wx:for="{{video_list}}" wx:key="*this">
+                <view class="item {{item.big_shot_video_id==id?'active':''}}" data-id="{{item.big_shot_video_id}}" bindtap="openDetail">{{item.title}}</view>
+            </block>
+        </view>
+        <view class="close" bindtap="popClose">
+            关闭
+        </view>
+    </view>
+    <!--pop-panel end-->
+    <!--pop-comment start-->
+    <view class="pop-comment">
+        <form class="myform">
+            <input type="text" bindinput="bindKeyInput" bindconfirm="userComment" confirm-type="send" placeholder="优质评论将会被优先展示" cursor-spacing="20" name="textarea" class="words" value="{{comment_form_value}}" />
+            <text class="submit" bindtap="userComment">发布</text>
+        </form>
+    </view>
+    <!--pop-comment end-->
+</view>

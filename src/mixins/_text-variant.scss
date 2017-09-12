@@ -1,0 +1,8 @@
+// Text overflow
+// Requires inline-block or block for proper styling
+
+@mixin text-variant($color,$font-size,$line-height) {
+      color: $color;
+      font-size: $font-size;
+      line-height: $line-height;
+}

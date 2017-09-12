@@ -1,0 +1,297 @@
+//公用样式
+@import "./mixins/mixins";
+//公用变量
+view,
+text,
+form,
+textarea,
+button,
+input {
+  box-sizing: border-box;
+  font-size: 24*1.172rpx;
+  line-height: 1.42;
+  color: #333333;
+  font-weight: 300;
+}
+
+page {
+  background: #ffffff;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+//btns
+.u-btn {
+  display: inline-block;
+  width: 213*1.172rpx;
+  height: 70*1.172rpx;
+  line-height: 70*1.172rpx;
+  border-radius: 5*1.172rpx;
+  background-color: #3694cb;
+  text {
+    color: #ffffff;
+    font-size: 28*1.172rpx;
+    font-weight: 400;
+    line-height: 70*1.172rpx;
+    vertical-align: middle;
+  }
+}
+
+.u-icn {
+  display: inline-block;
+  vertical-align: middle;
+  @include bg-contain;
+  font-size: 0px;
+}
+
+.icn-collect {
+  position: relative;
+  top: -3*1.172rpx;
+  width: 26*1.172rpx;
+  height: 22*1.172rpx;
+  background-image: url($image+'/icn_collect.png');
+}
+
+.icn-view {
+  position: relative;
+  top: -2*1.172rpx;
+  width: 26*1.172rpx;
+  height: 19*1.172rpx;
+  background-image: url($image+'/icn_view.png');
+}
+
+.icn-album {
+  position: relative;
+  top: -2*1.172rpx;
+  width: 28*1.172rpx;
+  height: 21*1.172rpx;
+  background-image: url($image+'/icn_album.png');
+}
+
+.icn-play {
+  position: relative;
+  width: 28*1.172rpx;
+  height: 21*1.172rpx;
+  background-image: url($image+'/icn_play.png');
+}
+
+.icn-star {
+  position: relative;
+  width: 26*1.172rpx;
+  height: 24*1.172rpx;
+  background-image: url($image+'/icn_star.png');
+}
+
+.icn-collect-white {
+  position: relative;
+  width: 31*1.172rpx;
+  height: 27*1.172rpx;
+  background-image: url($image+'/icn_collect_white.png');
+}
+
+.icn-star-white {
+  position: relative;
+  top: -2*1.172rpx;
+  width: 32*1.172rpx;
+  height: 31*1.172rpx;
+  background-image: url($image+'/icn_star_white.png');
+}
+
+.icn-radio {
+  position: relative;
+  width: 33rpx;
+  height: 36rpx;
+  background-image: url($image+'/icn_radio.png');
+}
+
+.icn-radio-stop {
+  position: relative;
+  width: 33rpx;
+  height: 43rpx;
+  background-image: url($image+'/icn-music-stop.png');
+}
+
+.icn-time {
+  position: relative;
+  top: -2rpx;
+  width: 30rpx;
+  height: 30rpx;
+  background-image: url($image+'/icn_time.png');
+}
+
+.icn-vote {
+  position: relative;
+  width: 34rpx;
+  height: 34rpx;
+  background-image: url($image+'/icn_vote.png');
+  &.active {
+    width: 38rpx;
+    height: 38rpx;
+    background-image: url($image+'/icn_vote_active.png');
+  }
+}
+
+.no-more {
+  color: #a3a3a3;
+  font-size: 24*1.172rpx;
+  font-weight: 400;
+  line-height: 80*1.172rpx;
+  text-align: center;
+}
+
+.icn-times {
+  position: relative;
+  width: 30rpx;
+  height: 30rpx;
+  background-image: url($image+'/icn_times.png');
+}
+
+.icn-video {
+  position: relative;
+  width: 37rpx;
+  height: 38rpx;
+  background-image: url($image+'/icn-video.png');
+}
+
+.icn-left {
+  position: relative;
+  width: 35rpx;
+  height: 34rpx;
+  background-image: url($image+'/icn-left.png');
+}
+
+.icn-store {
+  position: relative;
+  width: 50rpx;
+  height: 48rpx;
+  background-image: url($image+'/icn-store.png');
+}
+
+.icn-right {
+  position: relative;
+  width: 35rpx;
+  height: 34rpx;
+  background-image: url($image+'/icn-right.png');
+}
+
+.icn-off {
+  position: relative;
+  width: 103rpx;
+  height: 103rpx;
+  background-image: url($image+'/icn-stop.png');
+}
+
+.icn-on {
+  position: relative;
+  width: 103rpx;
+  height: 103rpx;
+  background-image: url($image+'/icn-play.jpg');
+}
+
+.icn-list {
+  position: relative;
+  width: 48rpx;
+  height: 38rpx;
+  background-image: url($image+'/icn-list.png');
+}
+
+.icn-vip {
+  position: relative;
+  width: 96rpx;
+  height: 40rpx;
+  background-image: url($image+'/vip.png');
+}
+
+.icn-bar-play {
+  position: relative;
+  width: 30rpx;
+  height: 30rpx;
+  background-image: url($image+'/icn_bar_play.png');
+}
+
+.icn-bar-stop {
+  position: relative;
+  width: 30rpx;
+  height: 30rpx;
+  background-image: url($image+'/icn_bar_stop.png');
+}
+
+.icn-wechat {
+  position: relative;
+  width: 70rpx;
+  height: 70rpx;
+  background-image: url($image+'/icn-wechat.png');
+}
+
+.icn-choose {
+  position: relative;
+  width: 42rpx;
+  height: 31rpx;
+  background-image: url($image+'/icn-choose.png');
+}
+
+.soundbar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #ddd;
+  padding: 0px 80rpx 0px 111rpx;
+  z-index: 5;
+  background-color: #fff;
+  .bg {
+    position: absolute;
+    left: 25rpx;
+    top: 8rpx;
+    width: 65rpx;
+    height: 65rpx;
+    border-radius: 65rpx;
+    @include bg-cover;
+  }
+  .txt {
+    display: block;
+    font-size: 24rpx;
+    color: #000;
+    line-height: 80rpx;
+    @include text-overflow;
+  }
+  .act {
+    position: absolute;
+    left: 25rpx;
+    top: 8rpx;
+    width: 65rpx;
+    height: 65rpx;
+    border-radius: 65rpx;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 9;
+  }
+  .u-icn {
+    position: absolute;
+    left: 22rpx;
+    top: 20rpx;
+    width: 22rpx;
+    height: 22rpx;
+    z-index: 10;
+    &.icn-radio-stop {
+      left: 22rpx;
+      top: 20rpx;
+    }
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 12rpx;
+    right: 22rpx;
+    width: 35rpx;
+    height: 54rpx;
+    @include bg-cover;
+    background-image: url($image+'/icn-play-now.gif');
+  }
+}
+
+.soundbar+view,
+.soundbar+swiper {
+  margin-top: 80rpx;
+}

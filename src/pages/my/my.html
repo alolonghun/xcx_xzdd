@@ -1,0 +1,31 @@
+<view>
+    <import src="../template/template.wxml" />
+    <template is="soundbar" data="{{playStatus}}" />
+    <view class="user">
+        <view class="avater" style="background-image:url('{{userInfo.avatarUrl}}');"></view>
+        <view class="name">{{userInfo.nickName}}<text class="u-icn icn-vip" wx-if='{{vip}}'></text></view>
+        <view class="dec">我们欢迎热爱教育事业的有识之士</view>
+        <view class="vip" bindtap="linkVip" wx-if='{{!vip}}'>+加入邦友</view>
+    </view>
+    <view class="menu">
+        <view class="item" bindtap="linkMySubscribe">
+            <text class="icn-menu icn-dy"></text>
+            <text class="name">我的订阅</text>
+        </view>
+        <view class="item" bindtap="linkMyCollect">
+            <text class="icn-menu icn-sc"></text>
+            <text class="name">我的收藏</text>
+        </view>
+        <view class="item" bindtap="link404">
+            <text class="icn-menu icn-hd"></text>
+            <text class="name">我的活动</text>
+        </view>
+    </view>
+    <view class="menu">
+        <view class="item" bindtap="linkMyMoney">
+            <text class="icn-menu icn-bb"></text>
+            <text class="name">我的邦币</text>
+        </view>
+    </view>
+</view>
+

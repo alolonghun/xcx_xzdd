@@ -1,0 +1,23 @@
+// Form  states
+@mixin form-variant($text-color, $border-color, $background-color) {
+        color: $text-color;
+        border-color: $border-color;
+        background-color: $background-color;
+}
+
+// Form control sizing
+@mixin input-size($input-height, $padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+    height: $input-height;
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: $border-radius;
+}
+
+// Placeholder text
+@mixin placeholder($color: $input-color-placeholder) {
+    &::-webkit-input-placeholder {
+        color: $color;
+        font-family: $font-family-base;
+    }
+}

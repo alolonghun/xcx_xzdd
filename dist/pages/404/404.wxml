@@ -1,0 +1,5 @@
+<view>
+    <view class="u-title">功能暂未开放,敬请期待</view>
+    <view class="submit-btn" bindtap="backPage">返回上一页</view>
+</view>
+

@@ -1,0 +1,87 @@
+<view>
+    <import src="../template/template.wxml" />
+    <template is="soundbar" data="{{playStatus}}" />
+    <form bindsubmit="formSubmit">
+        <view class="vip-intro">
+            <view class="title">邦友介绍</view>
+            <view class="dec">
+                <view>校长得道邦友是校长邦线上知识型社交媒体平台校长得道的会员名称，加入邦友可享受校长得道付费课程优惠服务。</view>
+                <view>校长得道邦友权益目前还在不断升级迭代中，我们将推出更多高价值的服务和福利，为渴望获取经验和知识的校长及教育创业者提供服务。</view>
+            </view>
+            <view class="price">加入邦友：99邦币</view>
+        </view>
+        <view class="diviler"></view>
+        <view class="vip-info">
+            <view class="title">个人信息</view>
+            <view class="ele">
+                <view class="txt">
+                    <text class="require">*</text>姓 名：</view>
+                <input type="text" class="input" name="real_name" placeholder="请输入您的姓名（必填）" placeholder-style="color:#a8a8a8" />
+            </view>
+            <view class="ele">
+                <view class="txt">
+                    <text class="require">*</text>手 机：</view>
+                <input type="text" class="input" name="mobile" placeholder="请输入您的手机号码（必填）" placeholder-style="color:#a8a8a8" />
+            </view>
+            <view class="ele">
+                <view class="txt">微 信：</view>
+                <input type="text" class="input" name="channel_id" placeholder="请填写您的微信号（选填）" placeholder-style="color:#a8a8a8" />
+            </view>
+        </view>
+        <view class="diviler"></view>
+        <view class="vip-like">
+            <view class="title">我关心</view>
+            <view class="choose-list">
+                <view class="item {{choose[0]?'active':''}}" bindtap="choose" data-index="0" data-value="招生营销">招生营销</view>
+                <view class="item {{choose[1]?'active':''}}" bindtap="choose" data-index="1" data-value="招生力">招生力</view>
+                <view class="item {{choose[2]?'active':''}}" bindtap="choose" data-index="2" data-value="教学调研">教学调研</view>
+                <view class="item {{choose[3]?'active':''}}" bindtap="choose" data-index="3" data-value="薪酬绩效">薪酬绩效</view>
+                <view class="item {{choose[4]?'active':''}}" bindtap="choose" data-index="4" data-value="家庭教育">家庭教育</view>
+                <view class="item {{choose[5]?'active':''}}" bindtap="choose" data-index="5" data-value="招聘面试">招聘面试</view>
+                <view class="item {{choose[6]?'active':''}}" bindtap="choose" data-index="6" data-value="股权激励">股权激励</view>
+                <view class="item {{choose[7]?'active':''}}" bindtap="choose" data-index="7" data-value="行业动态">行业动态</view>
+                <view class="item {{choose[8]?'active':''}}" bindtap="choose" data-index="8" data-value="其他">其他</view>
+            </view>
+        </view>
+        <view class="diviler"></view>
+        <view class="vip-info">
+            <view class="title">机构信息</view>
+            <view class="ele">
+                <view class="txt">机构名称：</view>
+                <input type="text" class="input" name="company" placeholder="请输入您的机构名称" placeholder-style="color:#a8a8a8" />
+            </view>
+            <view class="ele">
+                <view class="txt">职位：</view>
+                <input type="text" class="input" name="profession" placeholder="请输入您的职位" placeholder-style="color:#a8a8a8" />
+            </view>
+            <view class="ele">
+                <view class="txt">您的需求：</view>
+                <input type="text" class="input" name="demand" placeholder="请输入您的需求" placeholder-style="color:#a8a8a8" />
+            </view>
+            <view class="ele">
+                <view class="txt">您的供应：</view>
+                <input type="text" class="input" name="autograph" placeholder="请输入您的供应" placeholder-style="color:#a8a8a8" />
+            </view>
+            <view class="ele">
+                <view class="txt">公司规模：</view>
+                <picker bindchange="scaleChange" value="{{sindex}}" range="{{scale}}" name="scale">
+                    <view class="picker">
+                        {{scale[sindex]}}
+                    </view>
+                </picker>
+            </view>
+            <view class="ele">
+                <view class="txt">公司类别：</view>
+                <picker bindchange="companyChange" value="{{cindex}}" range="{{company}}" name="company_type">
+                    <view class="picker">
+                        {{company[cindex]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+        <view class="submit-wrap">
+            <button class="submit-btn" formType="submit">立即提交</button>
+        </view>
+    </form>
+</view>
+

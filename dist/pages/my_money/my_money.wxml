@@ -1,0 +1,31 @@
+<scroll-view scroll-y style="height: 100vh" bindscrolltolower="loadMore" lower-threshold="100">
+    <import src="../template/template.wxml" />
+    <template is="soundbar" data="{{playStatus}}" />
+    <view class="detail">
+        <view class="dec">当前余额</view>
+        <view class="money">{{money}}</view>
+    </view>
+    <view class="list">
+        <view class="title">
+            交易明细
+        </view>
+        <block wx:for="{{record}}" wx:key="*this">
+            <view class="item">
+                <view class="name">
+                    {{item.week_day}}
+                </view>
+                <view class="date">
+                    {{item.create_time}}
+                </view>
+                <view class="price">
+                    {{item.consumption_type ==1?'+':'-'}}{{item.price}}
+                </view>
+                <view class="info">
+                    {{item.remark}}
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class="no-more" wx-if="{{allDone}}">已经全部加载完成</view>
+</scroll-view>
+

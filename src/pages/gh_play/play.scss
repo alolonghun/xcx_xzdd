@@ -1,0 +1,415 @@
+/*
+ * @Author: smallke 
+ * @Date: 2017-06-03 14:35:16 
+ * @Last Modified by: smallke
+ * @Last Modified time: 2017-06-28 14:56:13
+ */
+
+//公用样式
+@import "../../mixins/mixins";
+page,
+.page {
+    background-color: #fff;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.detail {
+    position: relative;
+    height: 422rpx;
+    @include bg-cover;
+    z-index: 9;
+    .swiper {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 422rpx;
+        .slide-image {
+            width: 750rpx;
+            height: 422rpx;
+            background-repeat: no-repeat;
+            background-position: 50% 0%;
+            background-size: contain;
+        }
+    }
+    .content {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 88rpx;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 0px 100rpx;
+        .title {
+            color: #ffffff;
+            font-size: 33rpx;
+            font-weight: 400;
+            line-height: 80rpx;
+            @include text-overflow;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .time {
+            position: absolute;
+            top: 0px;
+            height: 88rpx;
+            color: #ffffff;
+            font-size: 26rpx;
+            font-weight: 400;
+            line-height: 88rpx;
+            text-align: center;
+            vertical-align: middle;
+            &.now {
+                left: 15px;
+            }
+            &.end {
+                right: 15px;
+            }
+        }
+        border-bottom: 3rpx solid #bbbbbb;
+    }
+    .times {
+        position: absolute;
+        bottom: -3rpx;
+        left: 0px;
+        width: 0%;
+        height: 3rpx;
+        z-index: 9;
+        background-color: #359dda;
+        .u-icn {
+            position: absolute;
+            right: -30rpx;
+            top: -15rpx;
+        }
+    }
+    .try {
+        position: absolute;
+        height: 66rpx;
+        right: 23rpx;
+        bottom: 109rpx;
+        @include bg-cover;
+        padding: 0px 25rpx 0rpx 80rpx;
+        color: #ffa627;
+        font-size: 26rpx;
+        font-weight: 400;
+        line-height: 66rpx;
+        background-image: url($image+'/icn-try.png');
+    }
+}
+
+.control {
+    position: relative;
+    height: 155rpx;
+    background-color: #fff;
+    .center {
+        width: 270rpx;
+        height: 155rpx;
+        line-height: 155rpx;
+        margin: 0 auto;
+        text-align: center;
+        .u-icn {
+            vertical-align: middle;
+        }
+    }
+    .icn-store {
+        position: absolute;
+        left: 46rpx;
+        top: 46rpx;
+    }
+    .icn-list {
+        position: absolute;
+        right: 46rpx;
+        top: 54rpx;
+    }
+    .icn-on,
+    .icn-off {
+        margin: 0rpx 48rpx;
+    }
+}
+
+.detail-title {
+    padding: 32rpx 36rpx;
+    border-top: 1rpx solid #dddddd;
+    background-color: #fff;
+    .title {
+        color: #333333;
+        font-size: 37rpx;
+        font-weight: 500;
+        line-height: 47rpx;
+    }
+    .dec {
+        padding-top: 15rpx;
+        .txt {
+            color: #545454;
+            font-size: 28rpx;
+            font-weight: 400;
+            line-height: 33rpx;
+            padding-right: 40rpx;
+        }
+    }
+}
+
+.diviler {
+    height: 23rpx;
+    background-color: #f7f7f7;
+}
+
+.section-intro {
+    background-color: #fff;
+    padding: 60rpx 50rpx 30rpx;
+    margin-bottom: 24rpx;
+    .title {
+        color: #333333;
+        font-size: 33rpx;
+        font-weight: 500;
+        line-height: 1;
+        @include text-overflow;
+    }
+    .dec {
+        padding-top: 28rpx;
+        color: #999;
+        font-size: 28rpx;
+        font-weight: 400;
+        line-height: 60rpx;
+    }
+}
+
+.m-judge {
+    padding: 20rpx 0rpx 0rpx;
+    .u-title {
+        padding-left: 20rpx;
+        padding-top: 26rpx;
+        color: #333333;
+        font-size: 33rpx;
+        font-weight: 500;
+        line-height: 1;
+    }
+}
+
+.judge-list {
+    .item {
+        position: relative;
+        padding: 44rpx 30rpx 44rpx 135rpx;
+        border-bottom: 1rpx solid #ddd;
+    }
+    .avatar {
+        position: absolute;
+        top: 38rpx;
+        left: 23rpx;
+        width: 94rpx;
+        height: 94rpx;
+        @include bg-cover;
+    }
+    .name {
+        font-weight: 400;
+        line-height: 1;
+        color: #333333;
+        font-size: 33rpx;
+        @include text-overflow;
+    }
+    .time {
+        padding-top: 15rpx;
+        font-weight: 400;
+        line-height: 1;
+        color: #8a8a8a;
+        font-size: 24rpx;
+    }
+    .content {
+        padding-top: 26rpx;
+        color: #545454;
+        font-size: 26rpx;
+        font-weight: 400;
+        line-height: 38rpx;
+        word-break: break-all;
+    }
+    .action {
+        position: absolute;
+        right: 27rpx;
+        top: 30rpx;
+        line-height: 34rpx;
+        .txt {
+            display: inline-block;
+            color: #8a8a8a;
+            font-size: 26rpx;
+            font-weight: 400;
+            height: 21rpx;
+            line-height: 34rpx;
+            padding-right: 10rpx;
+            vertical-align: middle;
+        }
+    }
+}
+
+.link-more {
+    height: 132rpx;
+    border-bottom: 1rpx solid #dddddd;
+    color: #a8a8a8;
+    font-size: 28rpx;
+    font-weight: 400;
+    line-height: 132rpx;
+    text-align: center;
+}
+
+.section-commend {
+    padding: 30rpx;
+    .u-title {
+        margin-left: -7rpx;
+        padding: 17rpx 0rpx 34rpx;
+        color: #333333;
+        font-size: 33rpx;
+        font-weight: 500;
+        line-height: 1;
+    }
+    .list {
+        @include clearfix;
+        .item {
+            position: relative;
+            float: left;
+            width: 334rpx;
+            height: 164rpx;
+            margin-left: 20rpx;
+            @include bg-cover;
+            .wrap {
+                position: absolute;
+                left: 0px;
+                bottom: 0px;
+                width: 100%;
+                padding: 0px 20rpx;
+                height: 54rpx;
+                line-height: 50rpx;
+                color: #fff;
+                font-size: 26rpx;
+                background-color: rgba(0, 0, 0, 0.5);
+                vertical-align: middle;
+                @include text-overflow;
+                .u-icn {
+                    margin-right: 20rpx;
+                    vertical-align: middle;
+                }
+            }
+            &:first-child {
+                margin-left: 0px;
+            }
+        }
+    }
+}
+
+.pop-panel {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.6);
+    .video-list {
+        position: absolute;
+        bottom: 118rpx;
+        left: 0px;
+        width: 100%;
+        max-height: 530rpx;
+        overflow: auto;
+        background-color: #fff;
+        border-bottom: 1rpx solid #f7f7f7;
+        .item {
+            position: relative;
+            height: 106rpx;
+            border-bottom: 1rpx solid #f7f7f7;
+            font-size: 33rpx;
+            font-weight: 400;
+            line-height: 105rpx;
+            color: #333333;
+            padding: 0px 100rpx 0px 45rpx;
+            @include text-overflow;
+            &.active {
+                color: #359dda;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 27rpx;
+                    right: 23rpx;
+                    width: 35rpx;
+                    height: 54rpx;
+                    @include bg-cover;
+                    background-image: url($image+'/icn-play-now.gif');
+                }
+            }
+        }
+    }
+    .close {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 118rpx;
+        background-color: #fff;
+        color: #a8a8a8;
+        font-size: 33rpx;
+        font-weight: 400;
+        line-height: 118rpx;
+        text-align: center;
+    }
+}
+
+.pop-comment {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    z-index: 9;
+    width: 100%;
+    height: 120rpx;
+    border-top: 1rpx solid #dddddd;
+    background-color: #f7f6fb;
+    .myform {
+        display: block;
+        position: relative;
+        padding: 23rpx 120rpx 24rpx 27rpx;
+    }
+    .words {
+        display: block;
+        height: 72rpx;
+        padding: 0rpx 48rpx;
+        border: 1rpx solid #dddddd;
+        background-color: #ffffff;
+        border-radius: 70rpx;
+        color: #666;
+        font-size: 28rpx;
+        font-weight: 400;
+        line-height: 70rpx;
+    }
+    .submit {
+        position: absolute;
+        right: 3px;
+        top: 0px;
+        display: block;
+        width: 110rpx;
+        height: 120rpx;
+        color: #a8a8a8;
+        font-size: 33rpx;
+        font-weight: 300;
+        line-height: 120rpx;
+        text-align: center;
+    }
+}
+
+.input-placeholder {
+    color: #a8a8a8;
+    font-size: 28rpx;
+}
+
+.tab-section {
+    padding-bottom: 120rpx;
+}
+
+#mySlider {
+    position: absolute;
+    left: -10rpx;
+    width: 100%;
+    bottom: -35rpx;
+    z-index: 9;
+    opacity: 0;
+    &.active {
+        opacity: 1;
+    }
+}

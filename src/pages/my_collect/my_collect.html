@@ -1,0 +1,55 @@
+<view>
+    <import src="../template/template.wxml" />
+    <template is="soundbar" data="{{playStatus}}" />
+    <view class="u-tabs">
+        <text class="tab {{showGH?'active':''}}" bindtap="showGHTab">干货</text>
+        <text class="tab {{showDK?'active':''}}" bindtap="showDKTab">大咖</text>
+    </view>
+    <view class="diviler"></view>
+    <!--m-lesson start-->
+    <view class="m-lesson dk" wx:if="{{showDK}}">
+        <scroll-view scroll-y style="height: 100vh" bindscrolltolower="dkloadMore" lower-threshold="100">
+            <block wx:for="{{dklesson}}" wx:key="mid">
+                <view class="item" bindtap="opendkDetail" data-id="{{item.mid}}">
+                    <view class="avatar" style="background-image:url('{{item.img}}');">
+                        <text class="tag tag-not" wx-if="{{item.is_pay==0}}">未购买</text>
+                    </view>
+                    <view class="info">
+                        <view class="title">{{item.title}}</view>
+                        <view class="dec">{{item.explain}}</view>
+                    </view>
+                    <view class="action">
+                        <text class="u-icn icn-collect"></text>{{item.subscribe}}人订阅</view>
+                    <text class="badge" wx-if="{{item.update_status}}">更新</text>
+                </view>
+            </block>
+            <view class="no-more" wx-if="{{dkallDone}}">已经全部加载完成</view>
+        </scroll-view>
+    </view>
+    <!--m-lesson end-->
+    <!--m-lesson start-->
+    <view class="m-lesson gh" wx:if="{{showGH}}">
+        <scroll-view scroll-y style="height: 100vh" bindscrolltolower="ghloadMore" lower-threshold="100">
+            <block wx:for="{{ghlesson}}" wx:key="mid">
+                <view class="item" bindtap="openghDetail" data-id="{{item.mid}}">
+                    <view class="avatar" style="background-image:url('{{item.img}}');">
+                        <text class="tag tag-not" wx-if="{{item.is_pay==0}}">未购买</text>
+                    </view>
+                    <view class="info">
+                        <view class="title">{{item.title}}</view>
+                        <view class="dec">{{item.explain}}</view>
+                    </view>
+                    <view class="action">
+                        <view class="em">
+                            <text class="u-icn icn-view"></text>{{item.subscribe}}</view>
+                        <view class="em">
+                            <text class="u-icn icn-album"></text>{{item.count}}集</view>
+                    </view>
+                    <text class="badge" wx-if="{{item.update_status}}">更新</text>
+                </view>
+            </block>
+            <view class="no-more" wx-if="{{ghallDone}}">已经全部加载完成</view>
+            <!--m-lesson end-->
+        </scroll-view>
+    </view>
+</view>

@@ -1,0 +1,13 @@
+<template name="soundbar" data="{{...playStatus}}">
+<view class="soundbar" wx-if='{{playStatus && playStatus.dataUrl}}'>
+    <view class="bg" style="background-image:url({{playStatus.bg}})"></view>
+    <view class="txt" bindtap="openPlay">{{playStatus.title}}</view>
+    <view class="act" wx-if='{{playStatus && playStatus.status == 0}}' bindtap="playMusic">
+        <text class="u-icn icn-radio"></text>
+    </view>
+    <view class="act" wx-if='{{playStatus && playStatus.status == 1}}' bindtap="stopMusic">
+        <text class="u-icn icn-radio-stop"></text>
+    </view>
+</view>
+</template>
+

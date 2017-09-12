@@ -1,0 +1,45 @@
+{
+    "pages": [
+        "pages/ganhuo/ganhuo",
+        "pages/my/my",
+        "pages/daka/daka",
+        "pages/gh_play/play",
+        "pages/dk_play/play",
+        "pages/gh_detail/detail",
+        "pages/dk_detail/detail",
+        "pages/my_subscribe/my_subscribe",
+        "pages/my_collect/my_collect",
+        "pages/my_money/my_money",
+        "pages/vip/vip",
+        "pages/404/404",
+        "pages/agreement/agreement"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#359dda",
+        "navigationBarTitleText": "校长邦",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#eeeeee"
+    },
+    "tabBar": {
+        "color": "#8a8a8a",
+        "selectedColor": "#3694cb",
+        "backgroundColor": "#f7f6fb",
+        "borderStyle": "black",
+        "list": [{
+            "pagePath": "pages/ganhuo/ganhuo",
+            "text": "干货",
+            "iconPath": "./image/icn_gh.png",
+            "selectedIconPath": "./image/icn_gh_active.png"
+        }, {
+            "pagePath": "pages/my/my",
+            "text": "我的",
+            "iconPath": "./image/icn_my.png",
+            "selectedIconPath": "./image/icn_my_active.png"
+        }]
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "downloadFile": 10000
+    }
+}

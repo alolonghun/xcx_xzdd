@@ -1,0 +1,284 @@
+/*
+ * @Author: smallke 
+ * @Date: 2017-06-03 13:43:41 
+ * @Last Modified by: smallke
+ * @Last Modified time: 2017-06-13 15:57:35
+ */
+
+//公用样式
+@import "../../mixins/mixins";
+//个人中心
+page {
+  background: #f7f7f7;
+}
+
+.detail {
+  height: 228rpx;
+  background-color: #359dda;
+  .dec {
+    padding-top: 50rpx;
+    color: #ffffff;
+    font-size: 33rpx;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+  }
+  .money {
+    padding-top: 30rpx;
+    color: #ffffff;
+    font-size: 61rpx;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+  }
+}
+
+.menu {
+  margin-top: 20*1.172rpx;
+  background-color: #fff;
+  .item {
+    height: 90*1.172rpx;
+    line-height: 90*1.172rpx;
+    padding: 0px 30*1.172rpx;
+    border-bottom: 1rpx solid #dddddd;
+    &:last-child {
+      border: none;
+    }
+    .name {
+      color: #333333;
+      padding-left: 20*1.172rpx;
+    }
+    &:after {
+      float: right;
+      display: block;
+      content: "";
+      width: 12*1.172rpx;
+      height: 90*1.172rpx;
+      font-size: 0px;
+      @include bg-contain;
+      background-image: url($image+'/icn_right.png');
+    }
+  }
+  .icn-menu {
+    display: inline-block;
+    vertical-align: middle;
+    @include bg-contain;
+    font-size: 0px;
+    &.icn-dy {
+      width: 36*1.172rpx;
+      height: 30*1.172rpx;
+      background-image: url($image+'/icn_menu_dy.png');
+    }
+    &.icn-sc {
+      width: 39*1.172rpx;
+      height: 37*1.172rpx;
+      background-image: url($image+'/icn_menu_sc.png');
+    }
+    &.icn-hd {
+      width: 34*1.172rpx;
+      height: 34*1.172rpx;
+      background-image: url($image+'/icn_menu_hd.png');
+    }
+    &.icn-bb {
+      width: 33*1.172rpx;
+      height: 37*1.172rpx;
+      background-image: url($image+'/icn_menu_bb.png');
+    }
+    &.icn-cz {
+      width: 39*1.172rpx;
+      height: 39*1.172rpx;
+      background-image: url($image+'/icn_menu_cz.png');
+    }
+  }
+}
+
+.list {
+  margin-top: 24rpx;
+  background-color: #fff;
+  .title {
+    padding: 36rpx;
+    color: #333333;
+    font-size: 33rpx;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .item {
+    position: relative;
+    padding: 36rpx;
+    border-bottom: 1rpx solid #dddddd;
+    .name {
+      color: #333333;
+      font-size: 33rpx;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .date {
+      padding-top: 22rpx;
+      color: #a8a8a8;
+      font-size: 28rpx;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .price {
+      position: absolute;
+      top: 36rpx;
+      right: 36rpx;
+      color: #333333;
+      font-size: 37rpx;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .info {
+      position: absolute;
+      right: 36rpx;
+      bottom: 36rpx;
+      color: #333333;
+      font-size: 28rpx;
+      font-weight: 400;
+      line-height: 1;
+    }
+  }
+}
+
+
+/*
+ * @Author: smallke 
+ * @Date: 2017-06-03 13:43:41 
+ * @Last Modified by: smallke
+ * @Last Modified time: 2017-06-04 14:13:24
+ */
+
+//公用样式
+@import "../../mixins/mixins";
+//个人中心
+page {
+  background: #f7f7f7;
+}
+
+.detail {
+  height: 228rpx;
+  background-color: #359dda;
+  .dec {
+    padding-top: 50rpx;
+    color: #ffffff;
+    font-size: 33rpx;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+  }
+  .money {
+    padding-top: 30rpx;
+    color: #ffffff;
+    font-size: 61rpx;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+  }
+}
+
+.menu {
+  margin-top: 20*1.172rpx;
+  background-color: #fff;
+  .item {
+    height: 90*1.172rpx;
+    line-height: 90*1.172rpx;
+    padding: 0px 30*1.172rpx;
+    border-bottom: 1rpx solid #dddddd;
+    &:last-child {
+      border: none;
+    }
+    .name {
+      color: #333333;
+      padding-left: 20*1.172rpx;
+    }
+    &:after {
+      float: right;
+      display: block;
+      content: "";
+      width: 12*1.172rpx;
+      height: 90*1.172rpx;
+      font-size: 0px;
+      @include bg-contain;
+      background-image: url($image+'/icn_right.png');
+    }
+  }
+  .icn-menu {
+    display: inline-block;
+    vertical-align: middle;
+    @include bg-contain;
+    font-size: 0px;
+    &.icn-dy {
+      width: 36*1.172rpx;
+      height: 30*1.172rpx;
+      background-image: url($image+'/icn_menu_dy.png');
+    }
+    &.icn-sc {
+      width: 39*1.172rpx;
+      height: 37*1.172rpx;
+      background-image: url($image+'/icn_menu_sc.png');
+    }
+    &.icn-hd {
+      width: 34*1.172rpx;
+      height: 34*1.172rpx;
+      background-image: url($image+'/icn_menu_hd.png');
+    }
+    &.icn-bb {
+      width: 33*1.172rpx;
+      height: 37*1.172rpx;
+      background-image: url($image+'/icn_menu_bb.png');
+    }
+    &.icn-cz {
+      width: 39*1.172rpx;
+      height: 39*1.172rpx;
+      background-image: url($image+'/icn_menu_cz.png');
+    }
+  }
+}
+
+.list {
+  margin-top: 24rpx;
+  background-color: #fff;
+  .title {
+    padding: 36rpx;
+    color: #333333;
+    font-size: 33rpx;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .item {
+    position: relative;
+    padding: 36rpx;
+    border-bottom: 1rpx solid #dddddd;
+    .name {
+      color: #333333;
+      font-size: 33rpx;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .date {
+      padding-top: 22rpx;
+      color: #a8a8a8;
+      font-size: 28rpx;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .price {
+      position: absolute;
+      top: 27rpx;
+      right: 36rpx;
+      color: #333333;
+      font-size: 37rpx;
+      font-weight: 400;
+      line-height: 1;
+    }
+    .info {
+      position: absolute;
+      right: 36rpx;
+      bottom: 34rpx;
+      color: #333333;
+      font-size: 28rpx;
+      font-weight: 400;
+      line-height: 1;
+    }
+  }
+}

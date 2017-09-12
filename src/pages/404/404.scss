@@ -1,0 +1,35 @@
+/*
+ * @Author: smallke 
+ * @Date: 2017-06-03 13:43:41 
+ * @Last Modified by: smallke
+ * @Last Modified time: 2017-06-13 15:57:35
+ */
+
+//公用样式
+@import "../../mixins/mixins";
+//个人中心
+page {
+  background: #fff;
+}
+
+.u-title {
+  padding: 200rpx 22rpx 30rpx;
+  color: #333333;
+  font-size: 45rpx;
+  font-weight: 300;
+  line-height: 1;
+  text-align: center;
+}
+
+.submit-btn {
+  margin: 200rpx auto 0rpx;
+  width: 598rpx;
+  height: 94rpx;
+  line-height: 94rpx;
+  border-radius: 5rpx;
+  background-color: #3694cb;
+  color: #ffffff;
+  font-size: 37rpx;
+  font-weight: 300;
+  text-align: center;
+}

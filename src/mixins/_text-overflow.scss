@@ -1,0 +1,15 @@
+// Text overflow
+// Requires inline-block or block for proper styling
+@mixin text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin text-overflow-line($num:1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $num;
+    -webkit-box-orient: vertical;
+}

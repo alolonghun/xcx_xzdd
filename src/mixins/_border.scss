@@ -1,0 +1,65 @@
+%border-1px-common {
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+}
+
+// Single side border-radius
+@mixin border-top-1px($color: $border-color-base) {
+    @extend %border-1px-common;
+    background-position: top center;
+    background-image: linear-gradient(to top, $color, $color, transparent, transparent);
+}
+
+@mixin border-bottom-1px($color: $border-color-base) {
+    @extend %border-1px-common;
+    background-position: bottom center;
+    background-image: linear-gradient(to bottom, $color, $color, transparent, transparent);
+}
+
+@mixin border-top-bottom-1px($color: $border-color-base) {
+    @extend %border-1px-common;
+    background-position: top,bottom;
+    background-image: linear-gradient(to top, $color, $color, transparent, transparent), linear-gradient(to bottom, $color, $color, transparent, transparent);
+}
+
+@mixin border-left-1px($color: $border-color-base) {
+    @extend %border-1px-common;
+    background-position: center left;
+    background-size: 1px 100%;
+    background-image: linear-gradient(to left, $color, $color, transparent, transparent);
+}
+
+@mixin border-right-1px($color: $border-color-base) {
+    @extend %border-1px-common;
+    background-position: center right;
+    background-size: 1px 100%;
+    background-image: linear-gradient(to right, $color, $color, transparent, transparent);
+}
+
+@mixin border-all-1px($color: $border-color-gray) {
+    position: relative;
+    &:before {
+        content: '';
+        position: absolute;
+        box-sizing: border-box;
+        width: 200%;
+        height: 200%;
+        left: 0;
+        top: 0;
+        border: 1px solid $color;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: scale(.5);
+        transform: scale(.5);
+    }
+}
+
+@mixin border-all-1px-old($color: $border-color-gray) {
+    box-shadow: 0 0 2px -1px $color;
+}
+
+@mixin border-none() {
+    border: none;
+    box-shadow: 0 0 0 0 transparent;
+    background-image: none;
+}
